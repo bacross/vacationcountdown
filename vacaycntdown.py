@@ -11,6 +11,7 @@ numDict = data['numbersDict']
 sid = data['twilioconfig']['sid']
 auth_token = data['twilioconfig']['token']
 from_ = data['twilioconfig']['number']
+vacay_dt = data['vacay_date']
 
 def countdownstr(nstr):
     # str of the format days, hours:minutes:seconds.microseconds
@@ -22,7 +23,7 @@ def countdownstr(nstr):
     return 'Time until vacation is '+daystr+hourstr+minstr+secstr
 
 def timedeltastr():
-    vacay = datetime.datetime(2018,8,17,16,1)
+    vacay = datetime.datetime(vacay_dt[0],vacay_dt[1],vacay_dt[2],vacay_dt[3],vacay_dt[4])
     return str(vacay - datetime.datetime.now())
     
 to_numbers = [data['numbersDict'][k] for k in data['numbersDict']]
